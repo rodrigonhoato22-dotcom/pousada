@@ -13,3 +13,7 @@ db_eventos = []
 @app.get("/eventos")
 def listar_eventos():
     return db_eventos
+@app.post("/eventos")
+def criar_evento(reserva: Reserva):
+    db_eventos.append(reserva.dict())
+    return {"mensagem": "Evento agendado com sucesso!"}
