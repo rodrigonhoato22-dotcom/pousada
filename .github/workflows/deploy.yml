@@ -1,0 +1,16 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [ "main", "feature/sistema-eventos" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simulating Deploy to Production
+        run: |
+          echo "Conectando ao servidor da Pousada..."
+          echo "Instalando dependências..."
+          echo "API da Pousada atualizada com sucesso!"
