@@ -1,0 +1,7 @@
+# Crie o arquivo e adicione o FastAPI
+echo "fastapi" >> requirements.txt
+echo "uvicorn" >> requirements.txt
+
+# Adicione e comite
+git add .
+git commit -m "Setup: Adicionando dependências do projeto"
