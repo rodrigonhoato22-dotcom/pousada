@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-app = FastAPI(title="Pousada Eventos")
+app = FastAPI(title="Pousada Eventos - v2.0.0 (CI/CD)")
 from pydantic import BaseModel
 from datetime import date
 
@@ -16,4 +16,4 @@ def listar_eventos():
 @app.post("/eventos")
 def criar_evento(reserva: Reserva):
     db_eventos.append(reserva.dict())
-    return {"mensagem": "Evento agendado com sucesso!"}
+    return {"mensagem": "Evento agendado com sucesso! "}
