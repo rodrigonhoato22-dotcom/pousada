@@ -23,6 +23,7 @@ jobs:
         
     - name: Test with pytest
       run: |
+        cd pousada
         pytest
         
     - name: Alerta de Status (Semana 6)
