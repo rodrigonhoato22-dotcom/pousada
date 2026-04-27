@@ -23,8 +23,12 @@ jobs:
         
     - name: Test with pytest
       run: |
-        # Agora o pytest vai procurar qualquer arquivo que comece com test_ na raiz
-        pytest
+        # O comando 'find' vai listar onde estão seus arquivos para o log (ajuda no debug)
+        find . -maxdepth 3 -not -path '*/.*'
+        
+        # Forçamos o pytest a procurar em todas as subpastas
+        # Se o seu arquivo se chama 'teste_main.py', precisamos avisar o pytest
+        pytest **/teste_main.py **/test_main.py || pytest teste_main.py
         
     - name: Alerta de Status (Semana 6)
       if: always()
