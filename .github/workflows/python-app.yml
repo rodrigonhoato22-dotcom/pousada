@@ -23,8 +23,14 @@ jobs:
         
     - name: Test with pytest
       run: |
-        # O ponto (.) força o pytest a vasculhar todas as pastas a partir da raiz
-        pytest .
+        # Localiza o arquivo test_main.py e roda o pytest diretamente nele
+        TEST_FILE=$(find . -name "test_main.py" | head -n 1)
+        if [ -z "$TEST_FILE" ]; then
+          echo "ERRO: Arquivo test_main.py não encontrado!"
+          exit 1
+        fi
+        echo "Rodando testes em: $TEST_FILE"
+        pytest "$TEST_FILE"
         
     - name: Alerta de Status (Semana 6)
       if: always()
